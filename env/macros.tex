@@ -1,0 +1,24 @@
+% !TeX root = ../main.tex
+
+\newcommand{\addtodo}[1][] % {\addcontentsline{todo}{todo}{\protect\numberline{\thedefinition}#1}}
+
+\newcommand{\CLEAR}{\clearpage}
+\newcommand{\SPACE}[1]{\vspace{#1}}
+\newcommand{\TO}[1]{\begin{todo}\ \begin{quote}#1\end{quote}\end{todo}}
+\newcommand{\TOO}[1]{\begin{todo}\ \begin{quote}#1\SPACE{5ex}\end{quote}\end{todo}} % \addtodo{#1}}
+\newcommand{\TOD}[1]{\begin{todo}\ \begin{quote}#1\SPACE{10ex}\end{quote}\end{todo}} % \addtodo{#1}}
+\newcommand{\TODO}[1]{\begin{todo}\ \begin{quote}#1\SPACE{15ex}\end{quote}\end{todo}} % \addtodo{#1}}
+\newcommand{\TODOO}[1]{\begin{todo}\ \begin{quote}#1\SPACE{20ex}\end{quote}\end{todo}} % \addtodo{#1}}
+\newcommand{\TOODO}[1]{\begin{todo}\ \begin{quote}#1\SPACE{\fill}\end{quote}\end{todo}\CLEAR} % \addtodo{#1}}
+
+
+\newcommand{\TODON}[1]{\begin{todon}\ \begin{quote}#1\SPACE{5ex}\end{quote}\end{todon}}
+\newcommand{\TOLIVER}[1]{\begin{toliver}\ \begin{quote}#1\SPACE{5ex}\end{quote}\end{toliver}}
+
+\newcommand{\defn}[1]{\uline{#1}}
+
+\input{env/macros/letters}
+\input{env/macros/categories}
+\input{env/macros/functions}
+\input{env/macros/custom}
+\input{env/macros/arrows}
