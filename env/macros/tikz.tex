@@ -1,0 +1,58 @@
+% !TeX root = ../../main.tex
+
+\tikzset{%
+    symbol/.style={%
+        draw=none,
+        every to/.append style={%
+            edge node={node [sloped, allow upside down, auto=false]{$#1$}}}
+    }
+}
+
+\newcommand{\tikzretraction}[4]{#1\arrow[r,hook,shift left=0.4ex, "#2"] & #3\arrow[l,two heads, shift left=0.7ex,"#4"]}
+
+\newcommand{\tikzwrap}[2]{\tikzset{ampersand replacement=\&}\begin{tikzcd}#2#1\end{tikzcd}}
+
+\NewDocumentCommand{\nattrans}{ m m O{""} O{""} O{""} }{%
+      #1\arrow[rr, bend left=50, #3, ""{name=x, below}]
+        \arrow[rr, bend right=50, #4, ""{name=y, above}]
+\& \& #2\arrow[Rightarrow, from=x, to=y, #5]}
+
+\NewDocumentCommand{\nattranstwo}{ m m m O{""} O{""} O{""} O{""} O{""} O{""} }{
+      \nattrans{#1}{#2}[#4][#5][#8]
+      \arrow[rr, bend left=50, #6 ""{name=x, below}]
+      \arrow[rr, bend right=50, #7, ""{name=y, above}]
+\& \& #3\arrow[Rightarrow, from=xx, to=yy, #9]}
+
+\NewDocumentCommand{\natt}{ m m O{""} O{""} O{""} O{} }{
+\tikzwrap{\nattrans{#1}{#2}[#3][#4][#5]}{#6}}
+
+\NewDocumentCommand{\tonatt}{ m m m O{""} O{""} O{""} O{""} O{} }{
+\tikzwrap{#1\arrow[r, #4] \& \nattrans{#2}{#3}[#5][#6][#7]}{#8}}
+
+\NewDocumentCommand{\fromnatt}{ m m m O{""} O{""} O{""} O{""} O{} }{
+\tikzwrap{\nattrans{#1}{#2}[#4][#5][#6]\arrow[r, #7] \& #3}{#8}}
+
+\NewDocumentCommand{\nattwo}{ m m m O{""} O{""} O{""} O{""} O{""} O{""} }{
+\tikzwrap{\nattranstwo{#1}{#2}{#3}[#4][#5][#6][#7][#8][#9]}{}}
+
+\NewDocumentCommand{\nattwosmall}{ m m m O{""} O{""} O{""} O{""} O{""} O{""} }{
+\tikzwrap{\nattranstwo{#1}{#2}{#3}[#4][#5][#6][#7][#8]}{[column sep=small]}}
+
+\NewDocumentCommand{\natthree}{ m m O{""} O{""} O{""} O{""} O{""} O{} }{
+\tikzwrap{
+      #1\arrow[rrr, bend left=80, #3, ""{name=x, below}]
+        \arrow[rrr, #4, ""{name=y, above}]
+        \arrow[rrr, phantom, ""{name=yy, below}]
+        \arrow[rrr, bend right=80, #5, ""{name=z, above}]
+\& \& \& #2\arrow[Rightarrow, from=x, to=y, #6]
+        \arrow[Rightarrow, from=yy, to=z, #7]
+}{#8}}
+
+\NewDocumentCommand{\adjoint}{ m m O{""} O{""} O{} }{
+\tikzwrap{
+    #1  \arrow[r, shift left=0.62ex, phantom, ""{name=x,above}]
+        \arrow[r, shift left=0.85ex, #3]
+  \& #2 \arrow[l, shift left=0.42ex, phantom, ""{name=y,below}]
+        \arrow[l, shift left=0.85ex, #4]
+        \arrow[from=x, to=y, symbol={\scriptstyle\dashv}]
+}{#5}}

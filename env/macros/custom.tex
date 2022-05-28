@@ -1,8 +1,5 @@
 % !TeX root = ../../main.tex
 
-
-\newcommand{\undervec}[1]{\underaccent{\vec}{#1}}
-
 \let\lslash\l
 \renewcommand{\l}{\left}
 \renewcommand{\r}{\right}
@@ -15,9 +12,6 @@
 
 \newcommand{\re}[1]{\cev{#1}}
 
-\newcommand{\rom}[1]{\romannumeral #1}
-\newcommand{\romcap}[1]{\MakeUppercase{\rom{#1}}}
-
 \newcommand{\quotient}[2]{\faktor{#1}{#2}}
 
 \newcommand{\la}{\raisebox{0.25ex}{$\scaleobj{0.65}{\big\lgroup}$}}
@@ -26,8 +20,6 @@
 \newcommand{\lb}{\left[}
 \newcommand{\rb}{\right]}
 
-% \renewcommand{\lg}{\lp}
-% \newcommand{\rg}{\rp}
 \newcommand{\lp}{\left(}
 \newcommand{\rp}{\right)}
 
@@ -44,6 +36,10 @@
 \newcommand{\psubset}{\subset}
 
 \newcommand{\eqrep}{\equiv}
+
+\newcommand{\defn}[1]{\uline{#1}}
+
+\newcommand{\undervec}[1]{\underaccent{\vec}{#1}}
 
 \newcommand{\overlap}{\preccurlyeq}
 \newcommand{\supp}[1]{\underline{#1}}
@@ -65,3 +61,27 @@
 \newcommand{\mono}{j}
 
 \newcommand{\ext}[1]{\E\xspace #1}
+
+% \DeclareRobustCommand{\cev}[1]{%
+%   \mathpalette\do@cev{#1}%
+% }
+% \newcommand{\do@cev}[2]{%
+%   \fix@cev{#1}{+}%
+%   \reflectbox{$\m@th#1\vvec{\reflectbox{$\fix@cev{#1}{-}\m@th#1#2\fix@cev{#1}{+}$}}$}%
+%   \fix@cev{#1}{-}%
+% }
+% \newcommand{\fix@cev}[2]{%
+%   \ifx#1\displaystyle
+%     \mkern#23mu
+%   \else
+%     \ifx#1\textstyle
+%       \mkern#23mu
+%     \else
+%       \ifx#1\scriptstyle
+%         \mkern#22mu
+%       \else
+%         \mkern#22mu
+%       \fi
+%     \fi
+%   \fi
+% }

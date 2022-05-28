@@ -1,48 +1,17 @@
 % !TeX root = ../../main.tex
 
 \makeatletter
-\providecommand*{\twoheadrightarrowfill@}{%
-  \arrowfill@\relbar\relbar\twoheadrightarrow
-}
-\providecommand*{\twoheadleftarrowfill@}{%
-  \arrowfill@\twoheadleftarrow\relbar\relbar
-}
-\providecommand*{\xtwoheadrightarrow}[2][]{%
-  \ext@arrow 0579\twoheadrightarrowfill@{#1}{#2}%
-}
+\providecommand*{\twoheadrightarrowfill@}{\arrowfill@\relbar\relbar\twoheadrightarrow}
+\providecommand*{\twoheadleftarrowfill@}{\arrowfill@\twoheadleftarrow\relbar\relbar}
+\providecommand*{\xtwoheadrightarrow}[2][]{\ext@arrow 0579\twoheadrightarrowfill@{#1}{#2}}
+\makeatother
 
-\providecommand*{\xtwoheadleftarrow}[2][]{%
-  \ext@arrow 5097\twoheadleftarrowfill@{#1}{#2}%
-}
+\providecommand*{\xtwoheadleftarrow}[2][]{\ext@arrow 5097\twoheadleftarrowfill@{#1}{#2}}
+
 \newcommand{\xhooktwoheadrightarrow}[2][]{%
   \lhook\joinrel
   \ext@arrow 0359\rightarrowfill@ {#1}{#2}%
-  \mathrel{\mspace{-15mu}}\rightarrow
-}
-\DeclareRobustCommand{\cev}[1]{%
-  \mathpalette\do@cev{#1}%
-}
-\newcommand{\do@cev}[2]{%
-  \fix@cev{#1}{+}%
-  \reflectbox{$\m@th#1\vvec{\reflectbox{$\fix@cev{#1}{-}\m@th#1#2\fix@cev{#1}{+}$}}$}%
-  \fix@cev{#1}{-}%
-}
-\newcommand{\fix@cev}[2]{%
-  \ifx#1\displaystyle
-    \mkern#23mu
-  \else
-    \ifx#1\textstyle
-      \mkern#23mu
-    \else
-      \ifx#1\scriptstyle
-        \mkern#22mu
-      \else
-        \mkern#22mu
-      \fi
-    \fi
-  \fi
-}
-
+  \mathrel{\mspace{-15mu}}\rightarrow}
 
 \newcommand*{\xtworightarrow}[2]{\mathrel{
   \settowidth{\@tempdima}{$\scriptstyle#1$}
@@ -52,6 +21,7 @@
     \offinterlineskip\ialign{\hbox to\dimexpr\@tempdima+1em{##}\cr
     \rightarrowfill\cr\noalign{\kern.5ex}
     \rightarrowfill\cr}}}\limits^{\!#1}_{\!#2}}}
+
 \newcommand*{\xtwolongrightarrow}[2]{\mathrel{
   \settowidth{\@tempdima}{$\scriptstyle#1$}
   \settowidth{\@tempdimb}{$\scriptstyle#2$}
@@ -60,6 +30,7 @@
     \offinterlineskip\ialign{\hbox to\dimexpr\@tempdima+1em{##}\cr
     \longrightarrowfill\cr\noalign{\kern.5ex}
     \longrightarrowfill\cr}}}\limits^{\!#1}_{\!#2}}}
+
 \newcommand*{\xthreerightarrow}[1]{\mathrel{
   \settowidth{\@tempdima}{$\scriptstyle#1$}
   \mathop{\vcenter{
@@ -68,89 +39,24 @@
     \rightarrowfill\cr\noalign{\kern.5ex}
     \rightarrowfill\cr}}}\limits^{\!#1}}}
 
-\makeatother
 
-\newcommand{\yields}{\rightsquigarrow}
-
-% Adjust the -0.75ex to taste
-\newcommand{\tightoverset}[2]{%
-  \mathop{#2}\limits^{\vbox to -.5ex{\kern-0.75ex\hbox{$#1$}\vss}}}
-\newcommand{\tightunderset}[2]{%
-  \mathop{#2}\limits_{\vbox to .5ex{\kern-1.1ex\hbox{$#1$}\vss}}}
-
-\newcommand{\shortrightharpdown}{\clipbox{6pt 0pt 0pt 1pt}{$\rightharpoondown$}}
-\newcommand{\shortleftharpdown}{\reflectbox{$\shortrightharpdown$}}
-% \newcommand{\shortleftharpdown}{\clipbox{-2pt 0pt 6pt 1pt}{$\leftharpoondown$}}
-
-% \newcommand{\aline}{%
-%  \mathchoice{\raisebox{-4pt}{$\displaystyle---$}}
-%             {\raisebox{-4pt}{$---$}}
-%             {\raisebox{-2pt}{$\scriptstyle---$}}
-%             {\raisebox{-2pt}{$\scriptscriptstyle---$}}}
-\newcommand{\upsidedown}[1]{\mathrel{\raisebox{\depth}{\scalebox{1}[-1]{#1}}}}
-\newcommand{\overarrow}[2]{\overset{\raisebox{#2}{$#1$}}{\rightharpoondown}}
-\newcommand{\underarrow}[2]{\underset{\raisebox{#2}{\scalebox{0.7}{$#1$}}}{\rightarrow}}
-\newcommand{\uto}{\rightharpoondown}%\overarrow{\_}{2pt}}
-\newcommand{\oto}{\rightharpoonup}%\upsidedown{$\overarrow{\_}{2pt}$}}
-% \newcommand{\uto}{\mathrel{\raisebox{-2pt}{$\overarrow{\_}$}}}
-% \newcommand{\oto}{\mathrel{\raisebox{-2pt}{\upsidedown{$\overarrow{\_}$}}}}
-% \newcommand{\uto}{\mathrel{\raisebox{2pt}{$\underset{\raisebox{2ex}{$\_$}}{\to}$}}}
-% \newcommand{\factors}{\rightleftarrows}
-\newcommand{\factors}{\rightleftharpoons}
-% \newcommand{\factors}{\mathrel{\raisebox{1pt}{$\tightunderset{\scalebox{1}{\shortleftharpdown}}{\rightharpoonup}$}}}
-\newcommand{\tto}{\rightrightarrows}
-% \newcommand{\tto}{\mathrel{\raisebox{1pt}{$\tightunderset{\scalebox{1}{\shortrightharpdown}}{\rightharpoonup}$}}}
-\newcommand{\diagram}{\rightrightarrows}
-\newcommand{\narrow}[1][]{\arrow["\mapsfromchar" marking, #1]}
-\newcommand{\tikzretraction}[4]{#1\arrow[r,hook,shift left=0.4ex, "#2"] & #3\arrow[l,two heads, shift left=0.7ex,"#4"]}
-
-\newcommand{\factor}[2]{#1\leftrightharpoons#2}
-
-% \newcommand{\tto}{\tightoverset{\rightharpoonup}{\longrightarrow}}
-
-\tikzset{%
-    symbol/.style={%
-        draw=none,
-        every to/.append style={%
-            edge node={node [sloped, allow upside down, auto=false]{$#1$}}}
-    }
-}
-
-\newcommand{\perpclip}{\scalebox{0.6}{\clipbox{0pt 0pt 0pt 4.5pt}{$\perp$}}}
-%
-% \def\adjoint{{%
-%     \setbox0\hbox{$\rightleftarrows$}%
-%     \rlap{\hbox to \wd0{\hss %
-%       \raisebox{0.57ex}{\ \perpclip}
-%     \hss}}\box0 %
-% }}
-
-\newcommand*\smashstackrel[3][lr]{%
-  \mathrel{\smashoperator[#1]{\mathop{#3}^{#2}}}
-}
-
-\newcommand{\hooktwoheadrightarrow}{%
-  \hookrightarrow\mathrel{\mspace{-15mu}}\rightarrow
-}
-
-\DeclareRobustCommand\longtwoheadrightarrow
-     {\relbar\joinrel\twoheadrightarrow}
- \newcommand{\asim}{%
-  \mathchoice{\raisebox{-4pt}{$\displaystyle\sim$}}
-             {\raisebox{-4pt}{$\sim$}}
-             {\raisebox{-2pt}{$\scriptstyle\sim$}}
-             {\raisebox{-2pt}{$\scriptscriptstyle\sim$}}}
-
+\newcommand{\hooktwoheadrightarrow}{\hookrightarrow\mathrel{\mspace{-15mu}}\rightarrow}
+\DeclareRobustCommand\longtwoheadrightarrow{\relbar\joinrel\twoheadrightarrow}
+\newcommand{\asim}{%
+\mathchoice{\raisebox{-4pt}{$\displaystyle\sim$}}
+           {\raisebox{-4pt}{$\sim$}}
+           {\raisebox{-2pt}{$\scriptstyle\sim$}}
+           {\raisebox{-2pt}{$\scriptscriptstyle\sim$}}}
 \newcommand{\arighthook}{%
- \mathchoice{\raisebox{-4pt}{$\hookrightarrow$}}
-            {\raisebox{-4pt}{$\scriptstyle\hookrightarrow$}}
-            {\raisebox{-2pt}{$\scriptscriptstyle\hookrightarrow$}}
-            {\raisebox{-2pt}{$\scriptscriptstyle\hookrightarrow$}}}
+\mathchoice{\raisebox{-4pt}{$\hookrightarrow$}}
+          {\raisebox{-4pt}{$\scriptstyle\hookrightarrow$}}
+          {\raisebox{-2pt}{$\scriptscriptstyle\hookrightarrow$}}
+          {\raisebox{-2pt}{$\scriptscriptstyle\hookrightarrow$}}}
 \newcommand{\alefthook}{%
- \mathchoice{\raisebox{-4pt}{$\hookleftarrow$}}
-            {\raisebox{-4pt}{$\scriptstyle\hookleftarrow$}}
-            {\raisebox{-2pt}{$\scriptscriptstyle\hookleftarrow$}}
-            {\raisebox{-2pt}{$\scriptscriptstyle\hookleftarrow$}}}
+\mathchoice{\raisebox{-4pt}{$\hookleftarrow$}}
+          {\raisebox{-4pt}{$\scriptstyle\hookleftarrow$}}
+          {\raisebox{-2pt}{$\scriptscriptstyle\hookleftarrow$}}
+          {\raisebox{-2pt}{$\scriptscriptstyle\hookleftarrow$}}}
 
 \newcommand{\oversim}[1]{\overset{\asim}{#1}}
 \newcommand{\overrighthook}[1]{\overset{\arighthook}{#1}}
@@ -186,73 +92,20 @@
 \newcommand{\xnlonghookrightarrow}[1]{\overset{#1}{\nlonghookrightarrow}}
 \newcommand{\xnlongtwoheadrightarrow}[1]{\overset{#1}{\nlongtwoheadrightarrow}}
 
-% \NewDocumentCommand{\foocmd}{ O{default1} O{default2} m }{#1~#2~#3}
+\newcommand{\shortarrow}{\scalebox{0.9}{\clipbox*{{0.33\width} -0.1ex {\width} {\height}}{$\to$}}}
+\newcommand{\looparrowdownright}{\mirrorvert{0.7}{\looparrowright}}
 
-\newcommand{\tikzwrap}[2]{\tikzset{ampersand replacement=\&}\begin{tikzcd}#2#1\end{tikzcd}}
+\newcommand{\shortrightharpdown}{\clipbox{6pt 0pt 0pt 1pt}{$\rightharpoondown$}}
+\newcommand{\shortleftharpdown}{\reflectbox{$\shortrightharpdown$}}
 
-\NewDocumentCommand{\nattrans}{ m m O{""} O{""} O{""} }{%
-      #1\arrow[rr, bend left=50, #3, ""{name=x, below}]
-        \arrow[rr, bend right=50, #4, ""{name=y, above}]
-\& \& #2\arrow[Rightarrow, from=x, to=y, #5]}
+\newcommand{\upsidedown}[1]{\mathrel{\raisebox{\depth}{\scalebox{1}[-1]{#1}}}}
+\newcommand{\overarrow}[2]{\overset{\raisebox{#2}{$#1$}}{\rightharpoondown}}
+\newcommand{\underarrow}[2]{\underset{\raisebox{#2}{\scalebox{0.7}{$#1$}}}{\rightarrow}}
+\newcommand{\uto}{\rightharpoondown}
+\newcommand{\oto}{\rightharpoonup}
+\newcommand{\factors}{\rightleftharpoons}
+\newcommand{\tto}{\rightrightarrows}
+\newcommand{\narrow}[1][]{\arrow["\mapsfromchar" marking, #1]}
+\newcommand{\factor}[2]{#1\leftrightharpoons#2}
 
-\NewDocumentCommand{\nattranstwo}{ m m m O{""} O{""} O{""} O{""} O{""} O{""} }{
-      \nattrans{#1}{#2}[#4][#5][#8]
-      \arrow[rr, bend left=50, #6 ""{name=x, below}]
-      \arrow[rr, bend right=50, #7, ""{name=y, above}]
-\& \& #3\arrow[Rightarrow, from=xx, to=yy, #9]}
-
-\NewDocumentCommand{\natt}{ m m O{""} O{""} O{""} O{} }{
-\tikzwrap{\nattrans{#1}{#2}[#3][#4][#5]}{#6}}
-
-\NewDocumentCommand{\tonatt}{ m m m O{""} O{""} O{""} O{""} O{} }{
-\tikzwrap{#1\arrow[r, #4] \& \nattrans{#2}{#3}[#5][#6][#7]}{#8}}
-
-\NewDocumentCommand{\fromnatt}{ m m m O{""} O{""} O{""} O{""} O{} }{
-\tikzwrap{\nattrans{#1}{#2}[#4][#5][#6]\arrow[r, #7] \& #3}{#8}}
-
-\NewDocumentCommand{\nattwo}{ m m m O{""} O{""} O{""} O{""} O{""} O{""} }{
-\tikzwrap{\nattranstwo{#1}{#2}{#3}[#4][#5][#6][#7][#8][#9]}{}}
-
-\NewDocumentCommand{\nattwosmall}{ m m m O{""} O{""} O{""} O{""} O{""} O{""} }{
-\tikzwrap{\nattranstwo{#1}{#2}{#3}[#4][#5][#6][#7][#8]}{[column sep=small]}}
-
-\NewDocumentCommand{\natthree}{ m m O{""} O{""} O{""} O{""} O{""} O{} }{
-\tikzwrap{
-      #1\arrow[rrr, bend left=80, #3, ""{name=x, below}]
-        \arrow[rrr, #4, ""{name=y, above}]
-        \arrow[rrr, phantom, ""{name=yy, below}]
-        \arrow[rrr, bend right=80, #5, ""{name=z, above}]
-\& \& \& #2\arrow[Rightarrow, from=x, to=y, #6]
-        \arrow[Rightarrow, from=yy, to=z, #7]
-}{#8}}
-
-\NewDocumentCommand{\adjoint}{ m m O{""} O{""} O{} }{
-\tikzwrap{
-    #1  \arrow[r, shift left=0.62ex, phantom, ""{name=x,above}]
-        \arrow[r, shift left=0.85ex, #3]
-  \& #2 \arrow[l, shift left=0.42ex, phantom, ""{name=y,below}]
-        \arrow[l, shift left=0.85ex, #4]
-        \arrow[from=x, to=y, symbol={\scriptstyle\dashv}]
-}{#5}}
-
-% \NewDocumentCommand{\nattdesc}{ m m m m m O{0.5} O{0.5} }{%
-%       #1\arrow[rr, bend left=50, pos=#7, "#3", ""{name=x, below}]
-%         \arrow[rr, bend right=50, pos=#6, "#4"', ""{name=y, above}]
-% \& \& #2\arrow[Rightarrow, from=x, to=y, "#5"' description]}
-%
-% \NewDocumentCommand{\nattwo}{ m m m m O{0.5} O{0.5} }{%
-%       \arrow[rr,bend left=50, pos=#5, "#2",""{name=xx,below}]
-%       \arrow[rr,bend right=50, pos=#6, "#3"',""{name=yy,above}]
-% \& \& #1\arrow[Rightarrow, from=xx, to=yy, "#4"']}
-
-% \NewDocumentCommand{\anattdesc}{ m m m m m O{0.5} O{0.5} }{\tikzwrap{\nattdesc{#1}{#2}{#3}{#4}{#5}[#6][#7]}}
-% \newcommand{\tonatt}[7]{\tikzset{ampersand replacement=\&}
-% \begin{tikzcd}
-%     #1\arrow[r,"#4"]
-% \& \nattrans{#2}{#3}{#5}{#6}{#7}
-% \end{tikzcd}}
-% \newcommand{\fromnatt}[7]{\tikzset{ampersand replacement=\&}
-% \begin{tikzcd}
-%       \nattrans{#1}{#2}{#4}{#5}{#7}\arrow[r,"#6"]
-% \& #3
-% \end{tikzcd}}
+\newcommand{\yields}{\rightsquigarrow}

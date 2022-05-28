@@ -1,0 +1,12 @@
+% !TeX root = ../../main.tex
+
+\newcommand{\mirrorvert}[2]{\raisebox{\depth}{\scalebox{#1}[-#1]{$#2$}}}
+
+\newcommand{\rom}[1]{\romannumeral #1}
+\newcommand{\romcap}[1]{\MakeUppercase{\rom{#1}}}
+
+\newcommand{\tightoverset}[2]{\mathop{#2}\limits^{\vbox to -.5ex{\kern-0.75ex\hbox{$#1$}\vss}}}
+\newcommand{\tightunderset}[2]{\mathop{#2}\limits_{\vbox to .5ex{\kern-1.1ex\hbox{$#1$}\vss}}}
+
+\newcommand{\perpclip}{\scalebox{0.6}{\clipbox{0pt 0pt 0pt 4.5pt}{$\perp$}}}
+\newcommand*\smashstackrel[3][lr]{\mathrel{\smashoperator[#1]{\mathop{#3}^{#2}}}}
