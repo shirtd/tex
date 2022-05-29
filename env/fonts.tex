@@ -8,6 +8,26 @@
 \usetikzlibrary{graphs,decorations.pathmorphing,decorations.markings}
 % \usepackage[mathcal]{euscript}
 
+\DeclareFontFamily{U}{mathb}{}
+\DeclareFontShape{U}{mathb}{m}{n}{
+     <-5.5> mathb5
+  <5.5-6.5> mathb6
+  <6.5-7.5> mathb7
+  <7.5-8.5> mathb8
+  <8.5-9.5> mathb9
+  <9.5-11>  mathb10
+  <11->     mathb12
+}{}
+\DeclareSymbolFont{mathb}{U}{mathb}{m}{n}
+\DeclareMathSymbol{\leftleftharpoons}      {3}{mathb}{"D8}
+\DeclareMathSymbol{\rightrightharpoons}    {3}{mathb}{"D9}
+\DeclareMathSymbol{\leftbarharpoon}        {3}{mathb}{"DC}
+\DeclareMathSymbol{\rightbarharpoon}       {3}{mathb}{"DD}
+\DeclareMathSymbol{\barleftharpoon}        {3}{mathb}{"DE}
+\DeclareMathSymbol{\barrightharpoon}       {3}{mathb}{"DF}
+\DeclareMathSymbol{\leftrightharpoon}      {3}{mathb}{"E0}
+\DeclareMathSymbol{\rightleftharpoon}      {3}{mathb}{"E1}
+
 % \usepackage[euler-digits]{eulervm}
 % \usepackage[scr=boondoxo]{mathalpha}
 

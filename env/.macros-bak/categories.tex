@@ -1,0 +1,68 @@
+% !TeX root = ../../main.tex
+
+\newcommand{\ifarg}[2]{\ifthenelse{\equal{#1}{}}{}{#2}}
+
+\newcommand{\mathwrap}[1]{\ensuremath{#1}\xspace}
+
+\newcommand{\cat}[1]{\mathwrap{\mathbf{#1}}}
+
+\newcommand{\poset}{\mathwrap{\mathbf{P}}}
+\newcommand{\toset}{\mathwrap{\mathbf{T}}}
+
+\renewcommand{\P}{\poset}
+\newcommand{\Q}{\cat{Q}}
+\newcommand{\T}{\toset}
+\renewcommand{\S}{\cat{S}}
+
+% \newcommand{\QP}{\mathwrap{\mathbf{Q^P}}}
+% \newcommand{\PQ}{\mathwrap{\mathbf{P^Q}}}
+% \newcommand{\TS}{\mathwrap{\mathbf{T^S}}}
+
+\newcommand{\Fun}[1]{\mathwrap{\mathrm{Fun}(#1)}}
+\newcommand{\Cat}{\ensuremath{\mathbf{Cat}}\xspace}
+\newcommand{\Set}{\ensuremath{\mathbf{Set}}\xspace}
+\newcommand{\Top}{\ensuremath{\mathbf{Top}}\xspace}
+\newcommand{\Grp}{\ensuremath{\mathbf{Grp}}\xspace}
+\newcommand{\Ab}{\ensuremath{\mathbf{Ab}}\xspace}
+\newcommand{\Rng}{\ensuremath{\mathbf{Rng}}\xspace}
+\newcommand{\Pre}{\ensuremath{\mathbf{Pre}}\xspace}
+\newcommand{\Pos}{\ensuremath{\mathbf{Pos}}\xspace}
+\newcommand{\Tos}{\ensuremath{\mathbf{Tot}}\xspace}
+\newcommand{\Tot}{\ensuremath{\mathbf{Tot}}\xspace}
+\newcommand{\Rel}{\ensuremath{\mathbf{Rel}}\xspace}
+\newcommand{\Mul}{\ensuremath{\mathbf{Mul}}\xspace}
+\newcommand{\Mch}{\ensuremath{\mathbf{Mch}}\xspace}
+\newcommand{\MMch}{\ensuremath{\mathbf{MMch}}\xspace}
+
+\let\vvec\vec
+\newcommand{\Vect}[1][]{\ensuremath{\mathbf{Vec^{#1}}}\xspace}
+\renewcommand{\Vec}[1][]{\Vect[#1]}
+\newcommand{\vect}[1][]{\ensuremath{\mathbf{vec^{#1}}}\xspace}
+\renewcommand{\vec}[1][]{\vect[#1]}
+\newcommand{\Pers}{\ensuremath{\mathbf{Pers}}\xspace}
+\newcommand{\pers}{\ensuremath{\mathbf{pers}}\xspace}
+
+\newcommand{\Fact}[1]{\mathwrap{\mathsf{Fact}\ifarg{#1}{(\mathbf{#1})}}}
+\newcommand{\Arrow}[1]{\mathwrap{\mathsf{Arrow}\ifarg{#1}{(\mathbf{#1})}}}
+\newcommand{\Arr}[1]{\Arrow[#1]}
+
+\renewcommand{\Bar}[1][]{\ensuremath{\mathbf{Bar_{#1}}}\xspace}
+\newcommand{\Barc}[1][]{\ensuremath{\mathbf{Barc_{#1}}}\xspace}
+\newcommand{\SBar}[1][]{\ensuremath{\mathbf{SBar_{#1}}}\xspace}
+\newcommand{\Barf}[1][]{\Fun{\op{\Int[#1]},\Mch}}
+
+\newcommand{\Int}[1][]{\ensuremath{\mathbf{Int}_{\mathbf{#1}}}\xspace}
+% \newcommand{\IntPQ}{\ensuremath{\mathbf{Int_P^Q}}\xspace}
+% \newcommand{\IntQP}{\ensuremath{\mathbf{Int_Q^P}}\xspace}
+% \newcommand{\IP}{\Int[P]}
+% \newcommand{\IQ}{\Int[Q]}
+% \newcommand{\IR}{\Int[R]}
+% \newcommand{\IS}{\Int[S]}
+% \newcommand{\IT}{\Int[T]}
+
+\newcommand{\Uni}{\ensuremath{\mathscr{U}}\xspace}
+\newcommand{\Pow}{\mathscr{P}}
+
+\newcommand{\pt}{\mathbf{pt}}
+\newcommand{\bool}{\ensuremath{\mathsf{bool}}\xspace}
+\newcommand{\Trans}{\ensuremath{\mathbf{Trans}}\xspace}
